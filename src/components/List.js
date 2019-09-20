@@ -4,9 +4,11 @@ import Card from './Card'
 class List extends Component {
   render(){
     return(
-      <div>
-      <h1>List Component</h1>
-      <Card />
+      <div className="lists">
+      <div className="list-header">
+        <h3>{this.props.list.title}</h3>
+      </div>
+
       </div>
     )
   }

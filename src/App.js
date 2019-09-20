@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Board from './components/Board'
 import data from './sampleData'
+import Home from './components/pages/home'
 
 
 class App extends Component {
@@ -12,16 +13,19 @@ class App extends Component {
   }
   componentDidMount(){
     this.setState({boards:data.boards})
+    console.table(data.boards)
   }
-  updateState = () => {
 
+  createNewBoard = board => {
+    this.setState({boards: [...this.state.boards, board]})
   }
+
   render() {
     return (
       <div>
-        {this.state.boards.map(board => (
-          <Board board={board}/>
-        ))}
+        <Home boards={this.state.boards}
+          createNewBoard={this.createNewBoard}/>
+        <Board />
     </div>
     );
   }
